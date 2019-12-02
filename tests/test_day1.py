@@ -1,4 +1,4 @@
-from day1 import part1, part2
+from aoc.day1 import part1, part2
 
 
 def test_part1():
