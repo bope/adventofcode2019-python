@@ -1,4 +1,3 @@
-
 def is_valid(num: int) -> bool:
     password = str(num)
     
@@ -7,7 +6,7 @@ def is_valid(num: int) -> bool:
 
     found = False
     for a, b in zip(password, password[1:]):
-        if int(a) > int(b):
+        if a > b:
             return False
 
         if a == b:
@@ -16,11 +15,14 @@ def is_valid(num: int) -> bool:
 
 
 def solution(min_val: int, max_val: int) -> int:
-    valid = 0
-    for num in range(min_val, max_val + 1):
-        if is_valid(num):
-            valid += 1
-    return valid
+    return sum(map(is_valid, range(min_val, max_val + 1)))
+
+
+# minified
+from collections import Counter
+
+def small(min_val, max_val):
+    return sum(map(lambda n: len(str(n)) == 6 and str(n) == ''.join(sorted(str(n))) and any(i > 1 for i in Counter(str(n)).values()) , range(min_val, max_val+1)))
 
 
 if __name__ == '__main__':
