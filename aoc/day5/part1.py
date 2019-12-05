@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 
 
 class Emulator:
@@ -8,18 +8,18 @@ class Emulator:
         self._program = program
         self._input = iter(input)
 
-    def _parse_instruction(self, instruction):
+    def _parse_instruction(self, instruction: int) -> Tuple[int, int, int, int]:
         ins = '{:05d}'.format(instruction)
         mode_3, mode_2, mode_1 = map(int, ins[:-2])
         op = int(ins[-2:])
         return mode_3, mode_2, mode_1, op
 
-    def _get(self, mode, pos):
+    def _get(self, mode: int, pos: int) -> int:
         if mode:
             return pos
         return self._program[pos]
 
-    def run(self):
+    def run(self) -> None:
         while True:
             start_ptr = self._ptr
             instruction = self._next()
@@ -45,18 +45,18 @@ class Emulator:
                 p1 = self._next()
                 self.output.append(self._get(mode_1, p1))
     
-    def _next(self):
+    def _next(self) -> None:
         v = self._program[self._ptr]
         self._ptr += 1
         return v
 
 
-def solution(program, input):
+def solution(program: List[int], input: List[int]) -> str:
     e = Emulator(program, input)
     e.run()
     return ''.join(map(str, e.output))
 
-def parse_input(input: str):
+def parse_input(input: str) -> List[int]:
     return list(map(int, input.split(',')))
 
 
