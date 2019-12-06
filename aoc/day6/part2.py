@@ -1,4 +1,4 @@
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, Generator
 from dataclasses import dataclass
 from functools import reduce
 
@@ -16,7 +16,7 @@ class Node:
             d += 1
         return d
 
-    def path(self) -> int:
+    def path(self) -> Generator[str, None, None]:
         c = self
         while (c:=c.parent) != None:
             yield c.name
