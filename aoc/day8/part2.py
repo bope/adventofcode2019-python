@@ -10,7 +10,6 @@ def solution(input: List[str], size=(25, 6)) -> str:
     for l in range(layers, 0, -1):
         end = l * layer_size
         start = end - layer_size
-        print(start, end)
 
         for i, pixel in enumerate(input[start:end]):
             if pixel != 2:
