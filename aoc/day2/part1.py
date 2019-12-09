@@ -1,7 +1,6 @@
 from typing import List
 
 
-
 def solution(input: List[int]) -> List[int]:
     i = iter(input)
 
@@ -22,7 +21,6 @@ def solution(input: List[int]) -> List[int]:
         else:
             raise Exception(f'invalid opcode: {op}')
 
-
     return input
 
 
@@ -30,8 +28,7 @@ def parse_input(input: str) -> List[int]:
     return list(map(int, input.split(',')))
 
 
-
-if __name__ == '__main__':
+def main():
     with open('inputs/day2.txt') as fd:
         input = parse_input(fd.read())
         input[1] = 12

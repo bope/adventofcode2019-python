@@ -9,6 +9,6 @@ def parse_input(input: str) -> List[int]:
     return list(map(int, input.split()))
 
 
-if __name__ == '__main__':
+def main():
     with open('inputs/day1.txt') as fd:
         print(solution(parse_input(fd.read())))

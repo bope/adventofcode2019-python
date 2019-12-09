@@ -26,8 +26,6 @@ def solution(input: List[Tuple[str, str]]) -> int:
 
         nodes[child].parent = nodes[parent]
 
-        # nodes[parent].children.append(nodes[child])
-
     return sum(n.depth() for n in nodes.values())
 
 
@@ -35,6 +33,6 @@ def parse_input(input: str) -> List[Tuple[str, str]]:
     return [tuple(p.split(')')) for p in input.split('\n')]
 
 
-if __name__ == '__main__':
+def main():
     with open('inputs/day6.txt') as fd:
         print(solution(parse_input(fd.read().strip())))

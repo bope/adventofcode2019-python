@@ -11,6 +11,6 @@ def solution(input: str, size=(25, 6)) -> int:
     return lc['1'] * lc['2']
 
 
-if __name__ == '__main__':
+def main():
     with open('inputs/day8.txt') as fd:
         print(solution(fd.read().strip()))

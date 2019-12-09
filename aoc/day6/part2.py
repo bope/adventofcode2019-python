@@ -52,6 +52,6 @@ def parse_input(input: str) -> List[Tuple[str, str]]:
     return [tuple(p.split(')')) for p in input.split('\n')]
 
 
-if __name__ == '__main__':
+def main():
     with open('inputs/day6.txt') as fd:
         print(solution(parse_input(fd.read().strip())))

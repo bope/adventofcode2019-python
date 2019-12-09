@@ -51,7 +51,7 @@ def solution(wire1: List[Tuple[Direction, int]], wire2: List[Tuple[Direction, in
     w2 = path_to_map(wire2, start)
     cross = w1.keys() & w2.keys()
     return min([w1[c] + w2[c] for c in cross])
-    
+
 
 def parse_path(input: str) -> List[Tuple[Direction, int]]:
     ret = []
@@ -65,8 +65,8 @@ def parse_input(input: str) -> Tuple[List[Tuple[Direction, int]], List[Tuple[Dir
     w1, w2 = input.strip().split('\n')
     return parse_path(w1), parse_path(w2)
 
-if __name__ == '__main__':
+
+def main():
     with open('inputs/day3.txt') as fd:
         res = solution(*parse_input(fd.read()))
         print(res)
-

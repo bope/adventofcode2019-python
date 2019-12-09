@@ -41,16 +41,15 @@ def path_to_map(path: List[Tuple[Direction, int]], start: Vec) -> Set[Vec]:
     return wmap
 
 
-
 def solution(wire1: List[Tuple[Direction, int]], wire2: List[Tuple[Direction, int]]):
     start = Vec(0, 0)
     w1 = path_to_map(wire1, start)
     w2 = path_to_map(wire2, start)
-    
+
     cross = w1 & w2
 
     return min([(start - c).distance() for c in cross])
-    
+
 
 def parse_path(input: str) -> List[Tuple[Direction, int]]:
     ret = []
@@ -59,12 +58,13 @@ def parse_path(input: str) -> List[Tuple[Direction, int]]:
         ret.append((Direction[d], int(s)))
     return ret
 
+
 def parse_input(input: str) -> Tuple[List[Tuple[Direction, int]], List[Tuple[Direction, int]]]:
     w1, w2 = input.strip().split('\n')
     return parse_path(w1), parse_path(w2)
 
-if __name__ == '__main__':
+
+def main():
     with open('inputs/day3.txt') as fd:
         res = solution(*parse_input(fd.read()))
         print(res)
-
