@@ -4,7 +4,7 @@ from importlib import import_module
 
 days = sys.argv[1:]
 if not days:
-    days = ['day{}'.format(i) for i in range(1, 10)]
+    days = ['day{}'.format(i) for i in range(1, 11)]
 
 for day in days:
     print('#', day)

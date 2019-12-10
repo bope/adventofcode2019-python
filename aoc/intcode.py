@@ -26,13 +26,7 @@ class Mem(list):
     def get(self, mode: int, ptr: int, rptr: int) -> int:
         ptr = self.resolve_ptr(mode, ptr, rptr)
         self.check_mem(ptr)
-        # return self._mem[ptr]
         return Addr(self, mode, ptr)
-
-    # def set(self, mode: int, ptr: int, rptr: int, val: int):
-    #    ptr = self.resolve_ptr(mode, ptr, rptr)
-    #    self.check_mem(ptr)
-    #    self._mem[ptr] = val
 
 
 @dataclass
