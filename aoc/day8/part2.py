@@ -22,5 +22,5 @@ def solution(input: str, size=(25, 6)) -> str:
 def main():
     with open('inputs/day8.txt') as fd:
         ret = solution(fd.read().strip())
-        ret = ret.replace('2', ' ').replace('0', '.').replace('1', 'X')
+        ret = ret.replace('2', ' ').replace('0', '.').replace('1', '#')
         print(ret)

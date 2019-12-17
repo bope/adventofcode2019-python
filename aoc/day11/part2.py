@@ -1,26 +1,8 @@
 from typing import List
 from dataclasses import dataclass, astuple
+
 from aoc.intcode import Emulator
-
-
-@dataclass
-class Vec:
-    x: int
-    y: int
-
-    def __hash__(self):
-        return hash(astuple(self))
-
-    def __add__(self, other: 'Vec') -> 'Vec':
-        return Vec(self.x + other.x, self.y + other.y)
-
-
-dirs = [
-    Vec(0, 1),
-    Vec(1, 0),
-    Vec(0, -1),
-    Vec(-1, 0)
-]
+from aoc.day11.part1 import Vec, dirs, parse_input
 
 
 def solution(program: List[int]) -> str:
@@ -63,10 +45,6 @@ def solution(program: List[int]) -> str:
         ret += '\n'
 
     return ret
-
-
-def parse_input(input: str) -> List[int]:
-    return map(int, input.strip().split(','))
 
 
 def main():
